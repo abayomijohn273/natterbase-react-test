@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../constants/theme";
 import ActionsDropdown from "../../../../Blocks/ActionsDropdown";
+import ArrowdownIcon from '../../../../../assets/images/chevron-down-white.svg';
 
-const AcceptedTestCaseGridStyle = styled.div`
+// ----ADDED TEST CASE
+
+const AddedTestCaseGridStyle = styled.div`
   background: ${theme.whiteColor};
   margin-top: 1rem;
   border-radius: 5px;
   position: relative;
   width: 100%;
+  height: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
 
@@ -34,8 +38,8 @@ const AcceptedTestCaseGridStyle = styled.div`
 
     button {
       cursor: default;
-      width: 30%;
-      padding: 0 20px;
+      width: 8rem;
+      padding: 0 1rem;
       height: 28px;
       border: 2px solid rgba(26, 12, 47, 0.1);
       box-sizing: border-box;
@@ -46,6 +50,11 @@ const AcceptedTestCaseGridStyle = styled.div`
 
       &:focus {
         outline: 0;
+      }
+
+      img {
+        position: relative;
+        left: 7px;
       }
     }
 
@@ -79,6 +88,7 @@ const AcceptedTestCaseGridStyle = styled.div`
   }
 `;
 
+// Data displayed
 const datas = [
   {
     id: 1,
@@ -122,10 +132,13 @@ const datas = [
   },
 ];
 
+// Cases list item
 const CaseItem = () => {
   const [testCases, setTestCase] = useState(datas);
   const [active, setActive] = useState("");
   const [showAction, setShowAction] = useState("");
+
+  // Handle button background color based on test status
   const showBgBasedOnStatus = (value) => {
     switch (value) {
       case "Pass":
@@ -138,12 +151,12 @@ const CaseItem = () => {
         return "bg-gray";
     }
   };
-  
+
+  //Handle Toggle show dropdown
   const handleCaseAction = (id) => {
-    if(id){
+    if (id) {
       setShowAction(!showAction);
     }
-    
   };
 
   return (
@@ -160,11 +173,13 @@ const CaseItem = () => {
             onClick={() => handleCaseAction(data.id)}
           >
             {data.status}
+            <span><img src={ArrowdownIcon} alt=''/></span>
           </button>
 
+          {/* Toggle dropdown */}
           {showAction && active === data.id ? (
             <div className="action-container">
-              <ActionsDropdown isSelected = {data.status}/>
+              <ActionsDropdown isSelected={data.status} />
             </div>
           ) : (
             ""
@@ -175,6 +190,7 @@ const CaseItem = () => {
   );
 };
 
+// Test & New Test Case Button
 const NewTestCase = () => {
   return (
     <div className="newCase">
@@ -184,13 +200,14 @@ const NewTestCase = () => {
   );
 };
 
-const AcceptedTestCaseGrid = () => {
+// --Main component with subcomponents
+const AddedTestCaseGrid = () => {
   return (
-    <AcceptedTestCaseGridStyle>
+    <AddedTestCaseGridStyle>
       <CaseItem />
       <NewTestCase />
-    </AcceptedTestCaseGridStyle>
+    </AddedTestCaseGridStyle>
   );
 };
 
-export default AcceptedTestCaseGrid;
+export default AddedTestCaseGrid;

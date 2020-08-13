@@ -11,8 +11,8 @@ const SwitchStyle = styled.div`
   .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 24px;
+    width: 48px;
+    height: 22px;
   }
 
   .switch input {
@@ -36,8 +36,8 @@ const SwitchStyle = styled.div`
   .slider:before {
     position: absolute;
     content: "";
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
     left: 4px;
     bottom: 4px;
     background-color: white;

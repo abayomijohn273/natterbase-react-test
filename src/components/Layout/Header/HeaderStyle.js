@@ -7,7 +7,7 @@ export const HeaderStyle = styled.header`
   background: ${theme.headerBg};
   height: 86px;
   display: grid;
-  grid-template-columns: 7% 26% 25% 17% 25%;
+  grid-template-columns: 7% 26% 22% 20% 25%;
 
   .grid-item {
     align-self: center;

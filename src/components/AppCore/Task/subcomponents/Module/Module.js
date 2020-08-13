@@ -6,6 +6,7 @@ import CardList from "../../../../Blocks/Card/CardList";
 import CardInput from "../../../../Blocks/Card/CardInput";
 import LoaderCard from "../../../../Blocks/Card/LoaderCard";
 
+// Column component
 const Column = ({ title, children }) => {
   return (
     <CardWrapper title={title}>
@@ -14,18 +15,27 @@ const Column = ({ title, children }) => {
     </CardWrapper>
   );
 };
+
+// Backlog Column
+const BacklogColumn = () => {
+  return (
+    <Column title="Backlog">
+      <CardInput />
+      <CardList />
+      <CardList />
+      <CardList />
+      <CardList />
+    </Column>
+  );
+};
+
 const Module = () => {
   return (
     <ModuleStyle>
       <div className="content">
-        <Column title="Backlog">
-          <CardInput />
-          <CardList />
-          <CardList />
-          <CardList />
-          <CardList />
-          <CardList />
-        </Column>
+        <BacklogColumn />
+
+        {/* Components with loader card */}
         <Column title="Todo">
           <LoaderCard />
         </Column>
@@ -38,6 +48,7 @@ const Module = () => {
         <Column title="Done">
           <LoaderCard />
         </Column>
+        {/* End Components with loader card */}
       </div>
     </ModuleStyle>
   );

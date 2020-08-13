@@ -1,6 +1,8 @@
 ## Natterbase Test using React
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### CSS was written using `styled-component`
+
 ## Available Scripts
 
 In the project directory, you can run:

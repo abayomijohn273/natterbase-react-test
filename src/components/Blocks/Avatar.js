@@ -30,6 +30,15 @@ const AvatarStyle = styled.div`
         : props.width === "40px"
         ? "1.2rem"
         : ".6rem"};
+
+    @media screen and (min-width: 1400px){
+      padding-top: ${(props) =>
+        props.fontSize === "5px"
+          ? ".1rem"
+          : props.width === "40px"
+          ? ".9rem"
+          : ".3rem"};
+    }
   }
 `;
 

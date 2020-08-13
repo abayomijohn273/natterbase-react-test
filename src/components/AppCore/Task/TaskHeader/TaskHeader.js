@@ -5,9 +5,15 @@ import Clock from "../../../../assets/images/clock.svg";
 import Calendar from "../../../../assets/images/calendar.svg";
 import TabNav from "../../../Blocks/Tab/TabNav";
 
+// ---------------------------------------
+// ----TASK HEADER WITH TABS AND DATE/TIME
+// ---------------------------------------
+
 const TaskHeader = ({ handleTabClick, activeTab }) => {
+  // Toggle switch
   const [isActive, setIsActive] = useState(true);
 
+  // Handle switch toggle
   const handleSwitch = () => {
     setIsActive((prev) => !prev);
   };
@@ -17,6 +23,7 @@ const TaskHeader = ({ handleTabClick, activeTab }) => {
         <TabNav handleTabClick={handleTabClick} activeTab={activeTab} />
       </div>
       <div className="all-task">
+        {/* Render screen based on active tab */}
         {activeTab === "Test" ? (
           ""
         ) : (
@@ -32,6 +39,7 @@ const TaskHeader = ({ handleTabClick, activeTab }) => {
         )}
       </div>
 
+      {/* Render screen based on active tab */}
       <div className="timeline">
         <img src={activeTab === "Test" ? Calendar : Clock} alt="" />
         <p className="text-success text-bold">

@@ -17,7 +17,7 @@ export const TabStyle = styled.div`
     & span {
       display: block;
       position: relative;
-      bottom: -15px;
+      bottom: -13px;
       height: 2px;
       width: 100%;
       text-align: center;
